@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Document</title>
+    <script>
+        //初始話陣列
+        let listOfName = ['Gyra', 'Sabdra', 'poren', 'BinD'];
+
+        //一、設定(新增元素)
+        listOfName[4] = 'Sally';
+        console.log(listOfName);
+        //輸出['Gyra', 'Sabdra', 'poren', 'BinD','Sally']
+
+        //二、使用arr.push()將資料家到陣列"尾端"
+        listOfName.push('Fox');
+        listOfName.push('Gina');
+        console.log(listOfName);
+        //輸出['Gyra', 'Sabdra', 'poren', 'BinD','Sally','Fox','Gina']
+
+        //三、修改元素
+        listOfName[0] = 'Allen';
+        listOfName[1] = 'Sandra';
+        console.log(listOfName[0]); //輸出Allen
+        console.log(listOfName[1]); //輸出Sandra
+        console.log(listOfName);
+        //輸出 ['Allen', 'Sandra', 'poren', 'BinD', 'Sally', 'Fox', 'Gina']
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

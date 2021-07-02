@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Document</title>
+    <script>
+        //i 到4的時候 跳出迴圈
+        for (let i = 1; i <= 9; i++) {
+            if (i == 4) {
+                break;
+            }
+            console.log(`i=${i}`);
+        }
+
+        /**
+         * j為4的時候 指跳出內部迴圈
+         * 但外部迴圈依然會繼續執行
+         * 指有內部迴圈的j走到4的時候
+         * 自行跳出(結束)
+         */
+
+        for (let i = 1; i <= 9; i++) {
+            for (let j = 1; j <= 9; j++) {
+                if (j == 4) {
+                    break;
+                }
+                console.log(`i=${i},j=${j}`);
+
+            }
+            console.log(`i=${i}`);
+        }
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

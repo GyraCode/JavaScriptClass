@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <p class="myClass">問世間</p>
+    <!--[0]-->
+    <p class="myClass">情為何物</p>
+    <!--[1]-->
+    <p class="myClass">直教傷死相許</p>
+    <!--[2]-->
+
+    <script>
+        let p = document.querySelector('p')
+
+        //可以使用類似陣列的操作方式 提供索引值來存取
+        p[0].style.backgroundColor = "#ff0000"
+        p[1].innerHTML = '<span style="color:#00ff00;">...情是何物...</span>';
+        p[2].style.lineHight = '24px';
+        p[2].style.backgroundColor = "#0000ff"
+        p[2].style.color = '#ffffff'
+    </script>
+</body>
+
+</html>
