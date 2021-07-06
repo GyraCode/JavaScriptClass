@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Document</title>
+    <script>
+        //宣告Data物件
+        let date = new Date();
+        let year, month, dy, hour, minute, second;
+
+        //目標:2021-07-06 09:21:00
+        year = date.getFullYear();
+
+        //月份 7月的時候執行 會出現6 比正常值少1 記得加1
+        if ((date.getMonth() + 1) < 10) {
+            month = '0' + (date.getMonth() + 1);
+        } else {
+            month = (date.getMonth() + 1);
+        }
+
+        //日 06
+        if (Date.getDate() < 10) {
+            day = '0' + date + getDate();
+        } else {
+            day = date.getDate();
+        }
+
+        //時
+        if (Date.getHour() < 10) {
+            hour = '0' + date + getHour();
+        } else {
+            hour = date.getHour();
+        }
+
+        //分
+        if (Date.getMinutes() < 10) {
+            minute = '0' + date + getMinutes();
+        } else {
+            minute = date.getMinutes();
+        }
+
+        //秒
+        if (Date.getSecond() < 10) {
+            second = '0' + date + getSecond();
+        } else {
+            second = date.getSecond();
+        }
+
+        console.log(`${year} - ${month}-${day}-${hour}-${minute}-${second}`);
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

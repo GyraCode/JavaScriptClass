@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Document</title>
+    <script>
+        //建立隨機數
+        console.log(Math.random());
+        console.log(Math.random());
+        console.log(Math.random());
+        console.log(Math.random());
+
+        //隨機選擇餐廳
+        let arrMeal = ['麥當勞', '肯德基', '摩斯漢堡', '漢堡王', '頂呱呱']
+        let idxRandom = Math.floor(Math.random() * 5)
+
+        document.write(`我可以選擇的東西有:<br>`)
+        for (let i = 0; i < arrMeal.length; i++) {
+            document.write('●' + arrMeal[i] + '<br>');
+        }
+
+        document.write(`今天晚餐，我想來點:${arrMeal[idxRandom]}`)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

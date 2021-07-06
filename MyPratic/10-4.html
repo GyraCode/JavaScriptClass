@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <script>
+        //以funtion 這個關鍵來建立類別(class)
+        let Person = function (name, gender, age) {
+            this.name = name;
+            this.gender = gender;
+            this.age = age;
+            this.getAge = function () {
+                return this.age;
+            }
+        }
+
+        //用new關鍵字來實體化(變成物件)
+        let Person01 = new Person('Alice', '女', 22)
+        let Person02 = new Person('Bill', '男', 18)
+
+        //輸出兩個Person的name
+        console.log(Person01.name);
+        console.log(Person02.name);
+
+        //取得Person的age值
+        console.log(Person01.getAge());
+        console.log(Person02.getAge());
+    </script>
+</body>
+
+</html>
