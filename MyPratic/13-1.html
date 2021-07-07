@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="box" style="width: 300px;height: 100px;background-color: #9999ff;" onmousemove="move()" onmouseout="out()">
+    </div>
+    <script>
+        //onmousemove事件所使用的涵式
+        function move() {
+            document.querySelector('div#box').style.backgroundColor = '#33ffff'
+        }
+
+        //onmouseout 事件所使用的函式
+        function out() {
+            document.querySelector('div#box').style.backgroundColor = "#ff0000"
+        }
+    </script>
+</body>
+
+</html>

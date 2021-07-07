@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <button id="btn" style="width: 200px;height: 100px;">按下後改變文字</button>
+    <hr>
+    <div class="div" style="width: 150px;height: 100px;border:1px solid">請用滑鼠移過此元素</div>
+    <hr>
+    <img class="puppy"
+        src="https://www.poaipets.com.tw/wp-content/uploads/2021/03/%E5%89%96%E6%9E%90%E7%8B%97%E7%8B%97%E5%B8%B8%E8%A6%8B%E7%96%BE%E7%97%85.jpg"
+        alt="">
+
+    <script>
+        //對button#btn 註冊click事件
+        document.querySelector('button#btn').addEventListener('click', function (event) {
+            /**
+             * event.target 等同於this 
+             * 都是只事件監聽的元素
+             * 例如上方的document.querySelector('button#btn')
+             */
+            event.target.innerText = '已改變';
+        });
+
+        //對div註冊兩個事件 分別是滑鼠移入和移出
+        let div = document.querySelector('div');
+        div.addEventListener('mousemove', function (event) {
+            this.style.backgroundColor = "#33ffff";
+
+        });
+        div.addEventListener('mouseout', function (event) {
+            this.style.backgroundColor = "#ff0000";
+        });
+
+        //對img.puppy 註冊滑鼠移入事件
+        document.querySelector('img.puppy').addEventListener('mousemove', function (event) {
+            this.setAttribute('src', 'https://www.arfarf.tw/wp-content/uploads/10%E4%BB%B6%E4%BA%8B-1024x677.jpg')
+        })
+
+    </script>
+</body>
+
+</html>

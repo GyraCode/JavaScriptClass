@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div id="myNewDiv" class="box"></div>
+    <script>
+        //建立新的div元素 newDiv
+        let newDiv = document.createElement('div');
+
+        //指定元素內建屬性
+        newDiv.id = 'myNewDiv';
+        newDiv.className = "box";
+
+        //建立文字結點 TextNode
+        let TextNode = document.createTextNode('Hello world!');
+
+        //透過 newDiv.appendChild() 將textNode加入致 newDiv當中
+        newDiv.appendChild(TextNode);
+
+        //透過document.body.apppendChild() 來加入newDiv到網頁當中
+        document.body.appendChild(newDiv);
+
+    </script>
+</body>
+
+</html>
