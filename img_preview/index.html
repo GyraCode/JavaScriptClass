@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="myForm" action="" method="POST" enctype="multipart/form-data">
+
+        <!-- 選擇上傳檔案的元素 -->
+        <h3>請選擇上傳檔案的元素</h3>
+        <input type="file" name="fileUpload[]" id="files" multiple>
+    </form>
+
+    <!-- 模擬點擊選擇上傳檔案的元素 -->
+    <a href="#" id="selectFiles">選擇檔案</a>
+
+    <!-- 水平線 -->
+    <hr>
+
+    <!-- 放置多張圖片的元素容器 -->
+    <ul id="myList"></ul>
+
+    <script>
+        //監聽多選檔案之後的事件
+        document.querySelector('input#files').addEventListener('change', handleFileSelect);
+
+        //處理選擇檔案後的預覽事件(涵式)
+        function handleFileSelect(event) {
+            alert('changed!')
+        }
+    </script>
+
+</body>
+
+</html>
