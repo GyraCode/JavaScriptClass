@@ -8,8 +8,9 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <link rel="stylesheet" href="animate.min.css">
+
+    <!-- <link rel="stylesheet" href="animate.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <title>Document</title>
     <style>
@@ -121,7 +122,7 @@
             </div>
         </div>
     </div>
-    <div class="container2 animate" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
+    <div class="container2">
         <div class="box ">
             <ul id="myList" class="ull "></ul>
         </div>
@@ -136,12 +137,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
     <!-- 參考連結: https://www.jqueryscript.net/other/jQuery-UI-Rotatable-Elements.html -->
-    <script src="./jquery.ui.rotatable.js"></script>
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="/path/to/dist/cp-lightimg.min.js"></script>
-    <script src="dist/scrolla.jquery.min.js"></script>
-    <script src="jquery.random-fade-in.1.2.2.js"></script>
+    <script src="scrolla.js"></script>
 
     <script>
         $(function () {
@@ -197,6 +195,11 @@
                             li.style.marginLeft = "15px";
                             li.style.marginTop = "15px";
 
+                            li.className = "animate";
+                            li.setAttribute("data-animate", "bounceIn");
+                            li.setAttribute("data-duration", "1.0s");
+                            li.setAttribute("data-delay", "0.1s");
+
 
 
                             //新增 img 元素，並指定 src 的值為貼圖連結
@@ -210,33 +213,21 @@
 
                             //將 li 放到 ul 當中
                             ul.appendChild(li);
+
+
                         }
 
-                        //使用 jQuery UI 和 rotatable plugin，使圖片透過滑鼠滾輪操作旋轉功能
-                        // $('ul#myList li').each(function (index, element) {
-                        //     $(element).on("click", "ul#myList li img".each(function () {
-                        //         $(this).cpLightimg();
-                        //     }));
 
-                        // });
+                        // $('li.animate').scrolla();
+                        $('li.animate').scrolla();
 
-                        // $(function () {
-                        //     $('ul#myList li').on("click", "ul#myList li".each(function () {
-                        //         $(this).cpLightimg();
-                        //     }));
-                        // });
-
-
-
-                        $('.animate').scrolla();
-
-                        $('.animate').scrolla({
+                        $('li.animate').scrolla({
                             mobile: true
                         });
-                        $('.animate').scrolla({
+                        $('li.animate').scrolla({
                             once: true
                         });
-                        $('.animate').scrolla({
+                        $('li.animate').scrolla({
                             animateCssVersion: 3
                         });
 
