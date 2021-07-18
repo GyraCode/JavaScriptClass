@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <link rel="stylesheet" href="animate.min.css">
+
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #9CDE9F;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            border: 1px solid #d1f5be;
+            margin-top: 280px;
+        }
+
+        .input {
+            padding-top: 50px;
+
+        }
+
+        .d {
+            margin: auto;
+        }
+
+        .inputer {
+            padding-top: 15px;
+        }
+
+        .btnn {
+            padding-left: 90px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+        }
+
+        .btn2 {
+            border-radius: 5px;
+            border: none;
+            background-color: #9DB17C;
+            color: #4B3B40;
+            font-weight: 600;
+        }
+
+
+        .box {
+            padding-right: 110px;
+        }
+
+        .ull>li {
+            margin: auto;
+            float: right;
+        }
+
+        .container2 {
+            border: 1px solid transparent;
+            margin-top: 150px;
+            width: 1200px;
+            margin: auto;
+
+        }
+
+        .ull {
+            padding-left: 50px;
+            margin: auto;
+        }
+
+        .pic {
+            position: absolute;
+            top: 50px;
+            left: 855px;
+        }
+
+        .pic>a>img {
+            border-radius: 100%;
+            width: 200px;
+
+        }
+
+        .box {
+            padding-bottom: 50px;
+        }
+
+        .tea {
+            font-weight: 800;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="dialog" title="所長教你">
+        <p class=" tea">對所長的圖片按下右鍵後!<br>
+            按下複製連結網址，就可以找到所長的樣子囉!
+        </p>
+    </div>
+
+    <div class="pic">
+        <a href="https://store.line.me/stickershop/product/16795/zh-Hant">
+            <img src="/19275299_1814158768899731_503374198420629526_n.png" alt="">
+        </a>
+    </div>
+    <div class="container">
+        <div class="d">
+            <div class="inputer">
+                <input type="text" id="url" placeholder="請輸入所長的樣子" value="" style="width: 250px;text-align: center;">
+            </div>
+
+            <div class="btnn">
+                <button id="btn_request" class="btn2">所長GET！</button>
+            </div>
+        </div>
+    </div>
+    <div class="container2 animate" data-animate="bounceIn" data-offset="50" data-duration="1.0s" data-delay="0.1s">
+        <div class="box ">
+            <ul id="myList" class="ull "></ul>
+        </div>
+    </div>
+
+
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <!-- jQuery UI -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <!-- 參考連結: https://www.jqueryscript.net/other/jQuery-UI-Rotatable-Elements.html -->
+    <script src="./jquery.ui.rotatable.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/path/to/dist/cp-lightimg.min.js"></script>
+    <script src="dist/scrolla.jquery.min.js"></script>
+    <script src="jquery.random-fade-in.1.2.2.js"></script>
+
+    <script>
+        $(function () {
+            $("#dialog").dialog();
+        });
+
+    </script>
+
+    <script>
+        //取得 JSON 字串
+        document.querySelector('button#btn_request').addEventListener('click', function (event) {
+            //取得 url
+            let url = document.querySelector("input#url").value;
+
+            //如果 url 為空，則不往下執行
+            if (url === '') {
+                alert(`請輸入LINE官方貼圖`);
+                return false;
+            }
+
+            //Web API
+            $.get('http://darreninfo.cc:5003/linesticker', { url: url }, function (obj) {
+
+                //取得 ul#myList
+                let ul = document.querySelector('ul#myList');
+
+                //清空 ul#myList 裡面所 li 元素
+                let _li = ul.querySelectorAll('li');
+
+                //除了常用的 for 迴圈，還可以使用 .forEach() 來逐次操作元素
+                _li.forEach(function (li) {
+                    //移除元素
+                    li.remove();
+                });
+
+                //檢查回傳結果是否為物件型態
+                if (typeof obj === "object") {
+                    //回傳成功，則顯示貼圖在網頁上
+                    if (obj['success']) {
+                        //將 objJson['results'] 裡面的結果，放置到
+                        for (let o of obj["results"]) {
+                            //新增 li 元素，放置 img、a 等元素
+                            let li = document.createElement("li");
+
+                            //設定 style 屬性
+                            li.style.width = "150px";
+                            li.style.height = "150px";
+                            li.style.border = "1px solid #d1f5be";
+                            li.style.borderRadius = "10%";
+                            li.style.listStyle = "none";
+                            li.style.backgroundColor = "#d1f5be";
+                            li.style.boxShadow = "rgba(0, 0, 0, 0.35) 0px 5px 15px";
+                            li.style.marginLeft = "15px";
+                            li.style.marginTop = "15px";
+
+
+
+                            //新增 img 元素，並指定 src 的值為貼圖連結
+                            let img = document.createElement("img");
+                            img.src = o["staticUrl"];
+                            img.style.width = "148px";
+                            img.style.marginTop = "13px"
+
+                            //將 img 放到 li 當中
+                            li.appendChild(img);
+
+                            //將 li 放到 ul 當中
+                            ul.appendChild(li);
+                        }
+
+                        //使用 jQuery UI 和 rotatable plugin，使圖片透過滑鼠滾輪操作旋轉功能
+                        // $('ul#myList li').each(function (index, element) {
+                        //     $(element).on("click", "ul#myList li img".each(function () {
+                        //         $(this).cpLightimg();
+                        //     }));
+
+                        // });
+
+                        // $(function () {
+                        //     $('ul#myList li').on("click", "ul#myList li".each(function () {
+                        //         $(this).cpLightimg();
+                        //     }));
+                        // });
+
+
+
+                        $('.animate').scrolla();
+
+                        $('.animate').scrolla({
+                            mobile: true
+                        });
+                        $('.animate').scrolla({
+                            once: true
+                        });
+                        $('.animate').scrolla({
+                            animateCssVersion: 3
+                        });
+
+                    } else {
+                        alert('這不是所長！');
+                    }
+                } else {
+                    //若非物件型態，便把資訊印在 console 面板來 debug
+                    console.log(obj);
+                }
+
+
+            });
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>
