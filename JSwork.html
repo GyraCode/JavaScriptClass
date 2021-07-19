@@ -9,8 +9,8 @@
         integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 
-    <!-- <link rel="stylesheet" href="animate.min.css"> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="/resources/demos/style.css">
+
 
     <title>Document</title>
     <style>
@@ -139,7 +139,10 @@
     <!-- 參考連結: https://www.jqueryscript.net/other/jQuery-UI-Rotatable-Elements.html -->
 
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="scrolla.js"></script>
+
+
+    <script src="jquery.random-fade-in.1.2.2.js"></script>
+
 
     <script>
         $(function () {
@@ -195,17 +198,13 @@
                             li.style.marginLeft = "15px";
                             li.style.marginTop = "15px";
 
-                            li.className = "animate";
-                            li.setAttribute("data-animate", "bounceIn");
-                            li.setAttribute("data-duration", "1.0s");
-                            li.setAttribute("data-delay", "0.1s");
 
 
 
                             //新增 img 元素，並指定 src 的值為貼圖連結
                             let img = document.createElement("img");
                             img.src = o["staticUrl"];
-                            img.style.width = "148px";
+                            img.style.width = "100%";
                             img.style.marginTop = "13px"
 
                             //將 img 放到 li 當中
@@ -217,18 +216,21 @@
 
                         }
 
-
-                        // $('li.animate').scrolla();
-                        $('li.animate').scrolla();
-
-                        $('li.animate').scrolla({
-                            mobile: true
+                        $(function () {
+                            $("#myList").sortable();
+                            $("#myList").disableSelection();
                         });
-                        $('li.animate').scrolla({
-                            once: true
+                        $(function () {
+                            $("#myList li ").resizable();
                         });
-                        $('li.animate').scrolla({
-                            animateCssVersion: 3
+
+                        $(function () {
+                            $("#myList li").resizable({
+                                maxHeight: 300,
+                                maxWidth: 350,
+                                minHeight: 150,
+                                minWidth: 150,
+                            });
                         });
 
                     } else {
